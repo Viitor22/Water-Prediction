@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulário de Qualidade da Água</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='Styles.css') }}">
+</head>
+<body>
+  <div class="container" role="main">
+    <h1>Formulário de Qualidade da Água</h1>
+    <p class="lead">Preencha as medidas da água. Unidades indicadas entre parênteses. Todos os campos são obrigatórios.</p>
+
+    <form id="waterForm" novalidate action="/predict" method="POST">
+      <div class="field">
+        <label for="ph">pH da água</label>
+        <input id="ph" name="ph" type="number" step="0.01" min="0" max="14" placeholder="Ex.: 7.0" required>
+      </div>
+
+      <div class="field">
+        <label for="hardness">Dureza (mg/L)</label>
+        <input id="hardness" name="hardness" type="number" step="0.1" min="0" placeholder="Ex.: 150" required>
+      </div>
+
+      <div class="field">
+        <label for="solids">Sólidos totais dissolvidos (ppm)</label>
+        <input id="solids" name="solids" type="number" step="0.1" min="0" placeholder="Ex.: 500" required>
+      </div>
+
+      <div class="field">
+        <label for="chloramines">Cloraminas (ppm)</label>
+        <input id="chloramines" name="chloramines" type="number" step="0.01" min="0" placeholder="Ex.: 0.5" required>
+      </div>
+
+      <div class="field">
+        <label for="sulfate">Sulfato (mg/L)</label>
+        <input id="sulfate" name="sulfate" type="number" step="0.1" min="0" placeholder="Ex.: 250" required>
+      </div>
+
+      <div class="field">
+        <label for="conductivity">Condutividade (&micro;S/cm)</label>
+        <input id="conductivity" name="conductivity" type="number" step="0.1" min="0" placeholder="Ex.: 300" required>
+      </div>
+
+      <div class="field">
+        <label for="organic_carbon">Carbono orgânico (ppm)</label>
+        <input id="organic_carbon" name="organic_carbon" type="number" step="0.01" min="0" placeholder="Ex.: 5.5" required>
+      </div>
+
+      <div class="field">
+        <label for="trihalomethanes">Trihalometanos (&micro;g/L)</label>
+        <input id="trihalomethanes" name="trihalomethanes" type="number" step="0.1" min="0" placeholder="Ex.: 50" required>
+      </div>
+
+      <div class="field">
+        <label for="turbidity">Turbidez (NTU)</label>
+        <input id="turbidity" name="turbidity" type="number" step="0.01" min="0" placeholder="Ex.: 1.2" required>
+      </div>
+
+      <!-- <div class="field">
+        <label for="potability">Potabilidade</label>
+        <select id="potability" name="potability" required>
+          <option value="">-- selecione --</option>
+          <option value="1">Potável</option>
+          <option value="0">Não potável</option>
+        </select>
+      </div> -->
+
+      <div class="field full row">
+        <button type="submit">Enviar</button>
+        <div id="status" aria-live="polite"></div>
+      </div>
+    </form>
+
+    {% if result %}
+      <!-- <div id="result" class="result" hidden></div> -->
+      <div class="result">
+        <strong>Resultado da Predição: {{ result }}</strong>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- <script src="{{ url_for('static', filename='Script.js') }}"></script> -->
+</body>
+</html>
