@@ -1,0 +1,137 @@
+/* 💧 Paleta de cores equilibrada e elegante */
+:root {
+  --azul-escuro: #035E73;   /* Azul escuro refinado */
+  --azul-medio: #047F97;    /* Azul médio */
+  --azul-claro: #3AB3C4;    /* Azul mais claro para detalhes */
+  --verde-agua: #57C9BE;    /* Verde-água suave */
+  --verde-claro: #A6F2D2;   /* Toque de contraste */
+  --texto-principal: #1f2937; /* Preto acinzentado */
+  --texto-secundario: #4b5563; /* Cinza para textos suaves */
+}
+
+/* Fundo mais escuro e gradiente elegante */
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, #035E73 0%, #047F97 100%);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: var(--texto-principal);
+}
+
+.container {
+  width: 980px;
+  max-width: 100%;
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid rgba(4, 145, 173, 0.15);
+}
+
+/* Títulos e legendas */
+h1 {
+  margin: 0 0 10px 0;
+  color: var(--azul-escuro);
+  text-align: center;
+  font-weight: 700;
+}
+
+p.lead {
+  margin: 0 0 22px 0;
+  color: var(--texto-secundario);
+  text-align: center;
+  font-size: 0.98rem;
+}
+
+/* Formulário */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 0.95rem;
+  color: var(--texto-principal);
+  font-weight: 600;
+}
+
+input[type="number"],
+select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(4, 145, 173, 0.25);
+  font-size: 0.95rem;
+  outline: none;
+  background-color: #f8fafc;
+  color: var(--texto-principal);
+  transition: all 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 4px rgba(58, 179, 196, 0.2);
+}
+
+/* Campo Potabilidade ocupando toda a linha */
+.full {
+  grid-column: 1 / -1;
+}
+
+button {
+  background: linear-gradient(90deg, var(--azul-escuro), var(--verde-agua));
+  color: #ffffff;
+  border: none;
+  padding: 10px 24px;       /* 🔹 altura e largura menores */
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 180px;             /* 🔹 botão pequeno */
+  margin: 20px auto 0;      /* 🔹 centraliza no meio */
+  display: block;           /* necessário pra centralizar */
+}
+
+button:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(3, 94, 115, 0.25);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Caixa de resultado */
+.result {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  border: 1px solid rgba(3, 94, 115, 0.2);
+  color: var(--texto-principal);
+}
+
+.error {
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+}
